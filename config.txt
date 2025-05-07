@@ -1,0 +1,32 @@
+
+#____CONFIGURATION FOR MRTRIX-PIPELINE _________________
+#species used for MRTRIX-pipeline
+SPECIES  = "mouse"       # USE:  "mouse" or "rat"
+
+#used DWI-files:assign nifti-files here or leave empty to obtain DWI-filenames from animal-folder
+
+#DWI_FILES = ()
+
+#DWI_FILES  = ("dwi_b100.nii" )
+#DWI_FILES  = ("dwi_b100.nii" "dwi_b900.nii" "dwi_b1600.nii" "dwi_b2500.nii")
+#DWI_FILES  = (dwi_b100.nii dwi_b900.nii dwi_b1600.nii dwi_b2500.nii)
+
+
+# __use_EXTERNAL_TISSUE-COMPARTMENT-MASKS___
+# wither 0 or 1 (default: 0) 
+#[0] : GM/WM/CSF is estimated via dwi2response dhollander
+#[1] : GM/WM/CSF -mask must be provided and are used for dwi2fod
+
+useTissueCompartments=0   # use additional GM/WM/CSF-masks for dwi2fod
+
+#__NUMBER_OF_COMPARTMENTS_USED_FOR_[dwi2fod]
+numberCompartments=2      # either [2]: using WM&CSF or [3]: using GM&WM&CSF
+
+#__useFixed Btables (case:  Bvalue-variation is to large set to 0 otherwise 1 )
+fixBtable=0              # default 0; use 1 if preprocessing fails (issue within dwiflspreproc/eddy)
+
+# REVERSE-PHASE-INCODING
+RPE=0                  # reverse-phase-encoding; {[0],no; [1]yes, B0 also aquired with RPE (B0-pairs)
+
+pe_dir="AP"            # phase encoding direction of the input series (dwifslpreproc, e.g. RL, PA, IS),  BERLIN: "AP"; Schm23-coronal: "PA"; Schm23-axial: "LR"; 
+
